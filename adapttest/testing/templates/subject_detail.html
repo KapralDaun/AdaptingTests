@@ -1,0 +1,12 @@
+{% extends "basic_generic.html" %}
+    {% block title %}<title>Курсы</title>{% endblock %}
+{% block content %}
+    <h1>{{ subject.title }}</h1>
+    <h3>Прежде чем приступить к тестированию, получите согласование у преподавателя. Помните, что все сессии сохраняются.</h3>
+    <h4>По техническим вопросам и предложениям обращайтесь на почту: klad002@mail.ru</h4>
+    <h4>Удачи!</h4>
+    <form method="post" action="{% url 'testing:start_session' subject_slug=subject.slug %}">
+        {% csrf_token %}
+        <button type="submit" >Начать тестирование</button>
+    </form>
+{% endblock %}

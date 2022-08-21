@@ -1,0 +1,25 @@
+{% extends "basic_generic.html" %}
+
+{% block title %}<title>Регистрация</title>{% endblock %}
+
+{% block content %}
+<h1>Регистрация</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+
+       <table>
+        <tbody>
+            {% for f in form %}
+        <tr>
+            <td>{{f.label}}</td>
+            <td>{{ f }}</td>
+        </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="form-error">{{ f.errors }}</div>
+
+    <input type="submit" value="Регистрация">
+</form>
+{% endblock %}

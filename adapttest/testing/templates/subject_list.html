@@ -1,0 +1,21 @@
+{% extends "basic_generic.html" %}
+{% block title %}<title>Доступные курсы </title>{% endblock %}
+
+
+{% block content %}
+    <h1>Доступные курсы</h1>
+
+    {% if object_list %}
+    <ul>
+
+      {% for object in object_list %}
+      <li>
+        <a href="{% url 'testing:subject-detail' subject_slug=object.slug %}">{{ object.title }}</a> ({{object.author}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>У Вас нет доступных курсов сейчас.</p>
+    {% endif %}
+{% endblock %}

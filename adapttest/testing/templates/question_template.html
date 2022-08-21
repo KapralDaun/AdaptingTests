@@ -1,0 +1,19 @@
+{% extends "basic_generic.html" %}
+<style>
+
+</style>
+{% block title %}<title>Вопрос</title>{% endblock %}
+
+{% block content %}
+<h1>Вопрос № {{ countOfQuestions }} </h1>
+<h1>Уровень сложности: {{ level }}</h1>
+<h2>{{ next_question }}</h2>
+<form action = "{% url 'testing:question' slug next_question.pk session_pk %}" method="post">
+        {% csrf_token %}
+        {{select_answer_form.as_p}}
+        <input type="submit" value="Ответить">
+</form>
+
+
+
+{% endblock %}

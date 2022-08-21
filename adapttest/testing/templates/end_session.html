@@ -1,0 +1,9 @@
+{% extends "basic_generic.html" %}
+    {% block title %}<title>Результаты тестирования</title>{% endblock %}
+{% block content %}
+    <h1>Тестирование по курсу "{{ subject_title }}" завершено</h1>
+    <h3>Количество вопросов, на которые Вы ответили: {{ countOfQuestions }}</h3>
+    <h3>Количество правильных ответов: {{ countOfTrueAnswers }}</h3>
+    <h3>Количество неправильных ответов: {{ countOfFalseAnswers }}</h3>
+    <h3>Ваша итоговая оценка: {{ mark }} </h3>
+{% endblock %}
